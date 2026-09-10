@@ -1,7 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
 
-    <!-- Header -->
     <q-header elevated class="bg-primary text-white">
       <q-toolbar>
         <q-btn dense flat round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
@@ -13,7 +12,7 @@
       </q-toolbar>
     </q-header>
 
-    <!-- Menú Lateral Nivel Profesional -->
+    
     <q-drawer v-model="leftDrawerOpen" side="left" behavior="mobile" bordered class="bg-grey-1">
       <q-scroll-area class="fit">
         <q-list padding class="text-grey-8">
@@ -75,12 +74,12 @@
       </q-scroll-area>
     </q-drawer>
 
-    <!-- Contenedor donde Vue Router renderiza cada vista -->
+    
     <q-page-container>
       <router-view />
     </q-page-container>
 
-    <!-- Footer -->
+
     <q-footer elevated class="bg-grey-9 text-white">
       <q-toolbar class="justify-center">
         <div class="text-caption">&copy; Menú Digital - Todos los derechos reservados</div>
