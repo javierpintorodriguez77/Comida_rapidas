@@ -7,14 +7,14 @@
           <div class="text-center q-px-md">
             <h1 class="text-h3 text-weight-bolder tech-title q-my-none">HAMBURGUESAS ARTESANALES</h1>
             <p class="text-subtitle1 q-mt-sm text-grey-4 text-weight-regular" style="max-width: 600px; margin: 0 auto;">
-              Preparadas con carne 100% de res seleccionada e ingredientes frescos del día.
+              Jugosa carne 100% de res seleccionada, ingredientes frescos y pan artesanal horneado a diario.
             </p>
           </div>
         </div>
       </q-img>
     </div>
 
-    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1200px;">
+    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1400px;">
       
       <!-- Recomendación del Chef -->
       <div class="q-mb-xl">
@@ -62,15 +62,15 @@
           </div>
           <h2 class="text-h6 text-weight-bold text-white tech-subtitle q-my-none">CATÁLOGO COMPLETO</h2>
         </div>
-        <q-badge outline color="grey-6" class="q-px-sm q-py-xs">{{ burgers.length }} PRODUCTOS DISPONIBLES</q-badge>
+        <q-badge outline color="grey-6" class="q-px-sm q-py-xs">{{ hamburguesas.length }} PRODUCTOS DISPONIBLES</q-badge>
       </div>
 
-      <!-- Grid de Productos alineados correctamente -->
-      <div class="row q-col-gutter-lg items-stretch">
-        <div v-for="(producto, index) in burgers" :key="index" class="col-12 col-sm-6 col-md-4 flex">
+      <!-- Grid de 4 Productos en una sola fila (col-md-3) -->
+      <div class="row q-col-gutter-md items-stretch">
+        <div v-for="(producto, index) in hamburguesas" :key="index" class="col-12 col-sm-6 col-md-3 flex">
           <q-card class="tech-card full-width flex column justify-between">
             <div>
-              <q-img :src="producto.imagen" height="190px" fit="cover">
+              <q-img :src="producto.imagen" height="170px" fit="cover">
                 <div v-if="producto.etiqueta" class="absolute-top-right bg-transparent q-pa-xs">
                   <q-chip 
                     :color="getBadgeColor(producto.etiqueta)" 
@@ -84,14 +84,14 @@
               </q-img>
 
               <q-card-section class="q-pa-md">
-                <div class="text-h6 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
-                <div class="text-body2 text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
+                <div class="text-subtitle1 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
+                <div class="text-caption text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
               </q-card-section>
             </div>
 
-            <!-- Footer con alineación inferior constante -->
+            <!-- Footer con alineación inferior uniforme -->
             <q-card-section class="q-pt-none q-pa-md row items-center justify-between border-top-subtle">
-              <span class="text-h6 text-weight-bolder text-accent">{{ producto.precio }}</span>
+              <span class="text-subtitle1 text-weight-bolder text-accent">{{ producto.precio }}</span>
               <q-btn 
                 flat 
                 round 
@@ -155,37 +155,37 @@ const chefBurger = {
   nombre: "Burger Master Special",
   descripcion: "Doble carne de 150g, queso cheddar fundido, tocineta ahumada, cebolla caramelizada y salsa secreta del chef.",
   precio: "$28.500",
-  imagen: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=600&auto=format&fit=crop"
+  imagen: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop"
 }
 
-const burgers = [
+const hamburguesas = [
   {
     nombre: "Hamburguesa Clásica",
     descripcion: "Carne de res 150g, queso americano, lechuga, tomate y salsa de la casa.",
     precio: "$18.500",
     etiqueta: "Más pedido",
-    imagen: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=500&auto=format&fit=crop"
   },
   {
     nombre: "BBQ Bacon",
     descripcion: "Carne 180g, tocineta crujiente, aros de cebolla, queso gouda y salsa BBQ.",
     precio: "$22.000",
     etiqueta: "Nuevo",
-    imagen: "https://images.unsplash.com/photo-1553979459-d2229ba7433b?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f6?q=80&w=500&auto=format&fit=crop"
   },
   {
     nombre: "Mexicana Jalapeño",
     descripcion: "Carne 150g, queso pepper jack, guacamole, jalapeños picados y totopos.",
     precio: "$21.500",
     etiqueta: "Picante",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQjCvOOuayPXEmu6FOmqFT3gYnVHgmrJXrH2sY-y4egknm4-jGaix_vKNP&s=10"
+    imagen: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Veggie Burger",
-    descripcion: "Medallón de garbanzos y lentejas, queso de almendras, lechuga, tomate y palta.",
-    precio: "$19.000",
+    nombre: "Veggie Portobello",
+    descripcion: "Hongo Portobello a la parrilla, queso de cabra, rúcula y tomate seco.",
+    precio: "$20.000",
     etiqueta: "Vegetariano",
-    imagen: "https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?q=80&w=500&auto=format&fit=crop"
   }
 ]
 
@@ -206,7 +206,7 @@ const getBadgeColor = (tag) => {
 </script>
 
 <style scoped>
-/* Estilos Dark Tech generales */
+/* Estilos Dark Tech */
 .tech-page {
   background-color: #0f172a;
 }
@@ -276,7 +276,7 @@ const getBadgeColor = (tag) => {
   background: rgba(14, 165, 233, 0.15);
 }
 
-/* Truncado de texto */
+/* Truncado de texto para tarjetas angostas */
 .title-clamp {
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -287,11 +287,12 @@ const getBadgeColor = (tag) => {
 
 .desc-clamp {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: 1.35;
+  min-height: 3.9em;
 }
 
 /* Modal */
