@@ -40,33 +40,73 @@
     <div class="row q-col-gutter-md">
       <div v-for="(miembro, index) in equipo" :key="index" class="col-12 col-sm-4">
         <q-card class="text-center shadow-3">
-          <q-img :src="miembro.foto" height="200px" fit="cover" />
+          <q-img :src="miembro.foto" height="200px" fit="cover">
+            <div class="absolute-top-right bg-transparent">
+              <q-btn flat round icon="visibility" color="white" @click="verDetalle(miembro)">
+                <q-tooltip>Ver perfil</q-tooltip>
+              </q-btn>
+            </div>
+          </q-img>
           <q-card-section>
             <div class="text-h6 text-weight-bold">{{ miembro.nombre }}</div>
-            <div class="text-subtitle2 text-primary">{{ miembro.cargo }}</div>
+            <div class="text-subtitle2 text-primary q-mb-sm">{{ miembro.cargo }}</div>
+            <q-btn flat color="primary" icon="visibility" label="Ver detalle" @click="verDetalle(miembro)" />
           </q-card-section>
         </q-card>
       </div>
     </div>
+
+    <q-dialog v-model="modalVerMiembro">
+      <q-card style="width: 400px; max-width: 90vw;" class="rounded-borders text-center">
+        <q-img v-if="miembroSeleccionado" :src="miembroSeleccionado.foto" height="220px" fit="cover">
+          <div class="absolute-top-right bg-transparent">
+            <q-btn icon="close" flat round dense color="white" v-close-popup />
+          </div>
+        </q-img>
+
+        <q-card-section v-if="miembroSeleccionado">
+          <div class="text-h6 text-weight-bold">{{ miembroSeleccionado.nombre }}</div>
+          <div class="text-subtitle1 text-primary text-bold q-mb-sm">{{ miembroSeleccionado.cargo }}</div>
+          <div class="text-body2 text-grey-8">{{ miembroSeleccionado.descripcion }}</div>
+        </q-card-section>
+
+        <q-card-actions align="right" class="q-pa-md">
+          <q-btn label="Cerrar" color="primary" flat v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+const modalVerMiembro = ref(false)
+const miembroSeleccionado = ref(null)
+
 const equipo = [
   {
     nombre: "Carlos Mendoza",
     cargo: "Chef Principal",
+    descripcion: "Especialista en gastronomía urbana con más de 8 años de experiencia perfeccionando recetas artesanales.",
     foto: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=400&auto=format&fit=crop"
   },
   {
     nombre: "Laura Gómez",
     cargo: "Cajera y Atención",
+    descripcion: "Encargada de brindar la mejor experiencia de servicio al cliente y gestionar los pedidos con eficiencia.",
     foto: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
   },
   {
     nombre: "Andrea Silva",
     cargo: "Domiciliario",
+    descripcion: "Responsable de garantizar que cada pedido llegue caliente, rápido y en perfectas condiciones a tu puerta.",
     foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
   }
 ]
+
+function verDetalle(item) {
+  miembroSeleccionado.value = item
+  modalVerMiembro.value = true
+}
 </script>
