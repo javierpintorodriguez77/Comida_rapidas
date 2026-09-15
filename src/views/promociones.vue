@@ -2,27 +2,27 @@
   <q-page class="tech-page q-pb-xl text-slate-2">
     <!-- Banner de portada -->
     <div class="banner-container relative-position">
-      <q-img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop" height="240px" fit="cover">
+      <q-img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop" height="240px" fit="cover">
         <div class="absolute-full flex flex-center text-white bg-filter">
           <div class="text-center q-px-md">
-            <h1 class="text-h3 text-weight-bolder tech-title q-my-none">COMBO PROMOCIONES</h1>
+            <h1 class="text-h3 text-weight-bolder tech-title q-my-none">PROMOCIONES & COMBOS</h1>
             <p class="text-subtitle1 q-mt-sm text-grey-4 text-weight-regular" style="max-width: 600px; margin: 0 auto;">
-              Aprovecha nuestras super ofertas pensadas para compartir.
+              Aprovecha nuestras ofertas especiales, combos familiares y descuentos exclusivos por tiempo limitado.
             </p>
           </div>
         </div>
       </q-img>
     </div>
 
-    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1200px;">
+    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1400px;">
       
-      <!-- Recomendación del Chef -->
+      <!-- Recomendación del Chef / Oferta Estrella -->
       <div class="q-mb-xl">
         <div class="row items-center q-mb-md">
           <div class="tech-icon-box q-mr-sm">
             <q-icon name="workspace_premium" color="amber-5" size="22px" />
           </div>
-          <h2 class="text-h6 text-weight-bold text-amber-4 tech-subtitle q-my-none">RECOMENDACIÓN DESTACADA</h2>
+          <h2 class="text-h6 text-weight-bold text-amber-4 tech-subtitle q-my-none">OFERTA ESTRELLA DEL MES</h2>
         </div>
 
         <q-card class="tech-chef-card shadow-12 overflow-hidden border-amber">
@@ -33,12 +33,15 @@
                 <div class="row items-center justify-between q-mb-sm">
                   <div class="text-h5 text-weight-bolder text-white">{{ chefPromo.nombre }}</div>
                   <q-chip outline color="amber-5" text-color="amber-5" class="text-bold text-caption">
-                    ESPECIALIDAD DE LA CASA
+                    AHORRA 25%
                   </q-chip>
                 </div>
                 <p class="text-body1 text-grey-4 q-mb-lg font-light">{{ chefPromo.descripcion }}</p>
                 <div class="row items-center justify-between">
-                  <span class="text-h4 text-weight-bolder text-accent">{{ chefPromo.precio }}</span>
+                  <div>
+                    <span class="text-caption text-grey-5 text-strike q-mr-sm">{{ chefPromo.precioAnterior }}</span>
+                    <span class="text-h4 text-weight-bolder text-accent">{{ chefPromo.precio }}</span>
+                  </div>
                   <q-btn 
                     unelevated 
                     color="accent" 
@@ -60,17 +63,17 @@
           <div class="tech-icon-box q-mr-sm">
             <q-icon name="local_offer" color="accent" size="20px" />
           </div>
-          <h2 class="text-h6 text-weight-bold text-white tech-subtitle q-my-none">CATÁLOGO COMPLETO</h2>
+          <h2 class="text-h6 text-weight-bold text-white tech-subtitle q-my-none">TODAS LAS PROMOCIONES</h2>
         </div>
-        <q-badge outline color="grey-6" class="q-px-sm q-py-xs">{{ promos.length }} PRODUCTOS DISPONIBLES</q-badge>
+        <q-badge outline color="grey-6" class="q-px-sm q-py-xs">{{ promociones.length }} OFERTAS ACTIVAS</q-badge>
       </div>
 
-      <!-- Grid de Productos alineados uniformemente -->
-      <div class="row q-col-gutter-lg items-stretch">
-        <div v-for="(producto, index) in promos" :key="index" class="col-12 col-sm-6 col-md-4 flex">
+      <!-- Grid de 4 Productos en una sola fila (col-md-3) -->
+      <div class="row q-col-gutter-md items-stretch">
+        <div v-for="(producto, index) in promociones" :key="index" class="col-12 col-sm-6 col-md-3 flex">
           <q-card class="tech-card full-width flex column justify-between">
             <div>
-              <q-img :src="producto.imagen" height="190px" fit="cover">
+              <q-img :src="producto.imagen" height="170px" fit="cover">
                 <div v-if="producto.etiqueta" class="absolute-top-right bg-transparent q-pa-xs">
                   <q-chip 
                     :color="getBadgeColor(producto.etiqueta)" 
@@ -84,14 +87,17 @@
               </q-img>
 
               <q-card-section class="q-pa-md">
-                <div class="text-h6 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
-                <div class="text-body2 text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
+                <div class="text-subtitle1 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
+                <div class="text-caption text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
               </q-card-section>
             </div>
 
-            <!-- Footer con alineación inferior constante -->
+            <!-- Footer con alineación inferior constante y precio tachado -->
             <q-card-section class="q-pt-none q-pa-md row items-center justify-between border-top-subtle">
-              <span class="text-h6 text-weight-bolder text-accent">{{ producto.precio }}</span>
+              <div class="row items-baseline">
+                <span v-if="producto.precioAnterior" class="text-caption text-grey-5 text-strike q-mr-xs">{{ producto.precioAnterior }}</span>
+                <span class="text-subtitle1 text-weight-bolder text-accent">{{ producto.precio }}</span>
+              </div>
               <q-btn 
                 flat 
                 round 
@@ -130,7 +136,10 @@
               {{ productoSeleccionado.etiqueta }}
             </q-chip>
           </div>
-          <div class="text-h5 text-accent text-weight-bolder q-mb-md">{{ productoSeleccionado.precio }}</div>
+          <div class="row items-baseline q-mb-md">
+            <span v-if="productoSeleccionado.precioAnterior" class="text-body1 text-grey-5 text-strike q-mr-sm">{{ productoSeleccionado.precioAnterior }}</span>
+            <span class="text-h5 text-accent text-weight-bolder">{{ productoSeleccionado.precio }}</span>
+          </div>
           <div class="text-body2 text-grey-3 font-light">{{ productoSeleccionado.descripcion }}</div>
         </q-card-section>
 
@@ -152,40 +161,45 @@ const modalVerProducto = ref(false)
 const productoSeleccionado = ref(null)
 
 const chefPromo = {
-  nombre: "Mega Combo Familiar",
-  descripcion: "2 Hamburguesas Clásicas + 2 Perros Sencillos + 1 Pizza Mediana + 1 Gaseosa 1.5L.",
-  precio: "$65.000",
-  imagen: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop"
+  nombre: "Mega Combo Pareja",
+  descripcion: "2 Hamburguesas dobles con carne 100% res, doble queso cheddar, 2 porciones de papas a la francesa medianas y 2 gaseosas 400ml.",
+  precioAnterior: "$48.000",
+  precio: "$36.000",
+  imagen: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop"
 }
 
-const promos = [
+const promociones = [
   {
-    nombre: "Combo Pareja",
-    descripcion: "2 Hamburguesas Clásicas + Porción Grande de Papas + 2 Gaseosas 350ml.",
-    precio: "$38.000",
+    nombre: "Combo Perro + Gaseosa",
+    descripcion: "1 Perro Caliente Sencillo con papas fosforito, queso mozzarella fundido y 1 gaseosa personal a elección.",
+    precioAnterior: "$16.000",
+    precio: "$12.900",
     etiqueta: "Más pedido",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOqOgRnyTheTYVTAkjZWJzNQzJg2v8TWoBPkDKMuG33g&s=10"
-  },
-  {
-    nombre: "Combo Perro + Papa",
-    descripcion: "1 Perro Suizo Extra + Papas a la francesa + Gaseosa 350ml.",
-    precio: "$22.000",
-    etiqueta: "Nuevo",
     imagen: "https://images.unsplash.com/photo-1619740455993-9e612b1af08a?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Pizza Party",
-    descripcion: "2 Pizzas Grandes de cualquier sabor + 1 Gaseosa 1.5L.",
-    precio: "$52.000",
-    etiqueta: "",
+    nombre: "2x1 En Pizzas Medianas",
+    descripcion: "Lleva 2 pizzas medianas de 6 porciones a elegir entre Pepperoni, Hawaiana o 4 Quesos (válido de Lunes a Miércoles).",
+    precioAnterior: "$56.000",
+    precio: "$38.000",
+    etiqueta: "Nuevo",
     imagen: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Dupla Cervecera",
-    descripcion: "2 Hamburguesas BBQ + 2 Cervezas Artesanales.",
-    precio: "$42.000",
-    etiqueta: "",
-    imagen: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=500&auto=format&fit=crop"
+    nombre: "Combo Dulce Final",
+    descripcion: "Compras 2 platos fuertes y lleva un Volcán de Chocolate con helado a mitad de precio.",
+    precioAnterior: "$15.000",
+    precio: "$7.500",
+    etiqueta: "Descuento",
+    imagen: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=500&auto=format&fit=crop"
+  },
+  {
+    nombre: "Combo Familiar XL",
+    descripcion: "1 Pizza Familiar 12 porciones + 2 Perros Calientes + 1 Porción de Papas Grandes + 1 Gaseosa 1.5L.",
+    precioAnterior: "$75.000",
+    precio: "$58.900",
+    etiqueta: "Familiar",
+    imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=500&auto=format&fit=crop"
   }
 ]
 
@@ -198,15 +212,15 @@ const getBadgeColor = (tag) => {
   switch (tag) {
     case 'Nuevo': return 'teal-6';
     case 'Más pedido': return 'deep-orange-6';
-    case 'Picante': return 'red-6';
-    case 'Vegetariano': return 'green-6';
+    case 'Descuento': return 'red-6';
+    case 'Familiar': return 'indigo-6';
     default: return 'primary';
   }
 }
 </script>
 
 <style scoped>
-/* Estilos Dark Tech generales */
+/* Estilos Dark Tech */
 .tech-page {
   background-color: #0f172a;
 }
@@ -287,11 +301,12 @@ const getBadgeColor = (tag) => {
 
 .desc-clamp {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: 1.35;
+  min-height: 3.9em;
 }
 
 /* Modal */
