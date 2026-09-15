@@ -7,14 +7,14 @@
           <div class="text-center q-px-md">
             <h1 class="text-h3 text-weight-bolder tech-title q-my-none">POSTRES & DULCES</h1>
             <p class="text-subtitle1 q-mt-sm text-grey-4 text-weight-regular" style="max-width: 600px; margin: 0 auto;">
-              El final perfecto para tu comida con nuestros postres hechos a mano.
+              El toque dulce perfecto para finalizar tu comida. Recetas artesanales e ingredientes frescos.
             </p>
           </div>
         </div>
       </q-img>
     </div>
 
-    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1200px;">
+    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1400px;">
       
       <!-- Recomendación del Chef -->
       <div class="q-mb-xl">
@@ -65,12 +65,12 @@
         <q-badge outline color="grey-6" class="q-px-sm q-py-xs">{{ postres.length }} PRODUCTOS DISPONIBLES</q-badge>
       </div>
 
-      <!-- Grid de Productos alineados uniformemente -->
-      <div class="row q-col-gutter-lg items-stretch">
-        <div v-for="(producto, index) in postres" :key="index" class="col-12 col-sm-6 col-md-4 flex">
+      <!-- Grid de 4 Productos en una sola fila (col-md-3) -->
+      <div class="row q-col-gutter-md items-stretch">
+        <div v-for="(producto, index) in postres" :key="index" class="col-12 col-sm-6 col-md-3 flex">
           <q-card class="tech-card full-width flex column justify-between">
             <div>
-              <q-img :src="producto.imagen" height="190px" fit="cover">
+              <q-img :src="producto.imagen" height="170px" fit="cover">
                 <div v-if="producto.etiqueta" class="absolute-top-right bg-transparent q-pa-xs">
                   <q-chip 
                     :color="getBadgeColor(producto.etiqueta)" 
@@ -84,14 +84,14 @@
               </q-img>
 
               <q-card-section class="q-pa-md">
-                <div class="text-h6 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
-                <div class="text-body2 text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
+                <div class="text-subtitle1 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
+                <div class="text-caption text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
               </q-card-section>
             </div>
 
             <!-- Footer con alineación inferior constante -->
             <q-card-section class="q-pt-none q-pa-md row items-center justify-between border-top-subtle">
-              <span class="text-h6 text-weight-bolder text-accent">{{ producto.precio }}</span>
+              <span class="text-subtitle1 text-weight-bolder text-accent">{{ producto.precio }}</span>
               <q-btn 
                 flat 
                 round 
@@ -153,39 +153,39 @@ const productoSeleccionado = ref(null)
 
 const chefPostre = {
   nombre: "Volcán de Chocolate con Helado",
-  descripcion: "Bizcocho tibio de chocolate amargo con centro fluido, acompañado de bola de helado de vainilla.",
-  precio: "$16.000",
+  descripcion: "Bizcocho tibio con centro líquido de chocolate amargo al 70%, acompañado de una bola de helado de vainilla artesanal.",
+  precio: "$15.000",
   imagen: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop"
 }
 
 const postres = [
   {
     nombre: "Cheesecake de Frutos Rojos",
-    descripcion: "Base crocante de galleta, crema de queso suave y mermelada artesanal de mora y fresa.",
-    precio: "$13.000",
+    descripcion: "Cremoso pastel de queso sobre galleta crocante, cubierto con mermelada casera de mora y arándanos.",
+    precio: "$13.500",
     etiqueta: "Más pedido",
     imagen: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Brownie con Helado",
-    descripcion: "Brownie melcochudo de nuez servido tibio con helado de vainilla y fudge de chocolate.",
+    nombre: "Brownie Supremo con Helado",
+    descripcion: "Brownie melcochudo de chocolate con trozos de nuez, servido caliente con helado de crema.",
     precio: "$12.000",
-    etiqueta: "Nuevo",
+    etiqueta: "",
     imagen: "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Waffle Supremo",
-    descripcion: "Waffle crocante servido con Nutella, banano en rodajas y crema batida.",
-    precio: "$14.500",
-    etiqueta: "",
-    imagen: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?q=80&w=500&auto=format&fit=crop"
+    nombre: "Tiramisú Tradicional",
+    descripcion: "Postre italiano a base de bizcochuelos ahogados en café express, capas de mascarpone y cacao en polvo.",
+    precio: "$14.000",
+    etiqueta: "Nuevo",
+    imagen: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Flan de Caramelo",
-    descripcion: "Flan casero tradicional con baño de caramelo dorado.",
-    precio: "$9.000",
-    etiqueta: "Vegetariano",
-    imagen: "https://images.unsplash.com/photo-1528975604071-b4dc52a2d18c?q=80&w=500&auto=format&fit=crop"
+    nombre: "Waffle con Nutella y Banano",
+    descripcion: "Waffle crujiente de mantequilla bañado en Nutella, rodajas de banano fresco y fresas picadas.",
+    precio: "$13.000",
+    etiqueta: "",
+    imagen: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?q=80&w=500&auto=format&fit=crop"
   }
 ]
 
@@ -206,7 +206,7 @@ const getBadgeColor = (tag) => {
 </script>
 
 <style scoped>
-/* Estilos Dark Tech generales */
+/* Estilos Dark Tech */
 .tech-page {
   background-color: #0f172a;
 }
@@ -287,11 +287,12 @@ const getBadgeColor = (tag) => {
 
 .desc-clamp {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: 1.35;
+  min-height: 3.9em;
 }
 
 /* Modal */
