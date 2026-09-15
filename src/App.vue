@@ -2,25 +2,33 @@
   <q-layout view="hHh lpR fFf">
 
     <q-header elevated class="bg-primary text-white">
+      <!-- Barra principal: solo título -->
       <q-toolbar>
-        <!-- Título principal -->
-        <q-toolbar-title shrink class="row items-center q-mr-md">
+        <q-toolbar-title class="row items-center">
           <q-icon name="fastfood" size="28px" class="q-mr-sm" />
-          <span class="text-weight-bold text-no-wrap">Menú Digital</span>
+          <span class="text-weight-bold">Menú Digital</span>
         </q-toolbar-title>
-
-        <!-- Pestañas de menú en la barra superior -->
-        <q-tabs v-model="tab" dense active-color="yellow" indicator-color="yellow" outside-arrows mobile-arrows
-          class="text-white">
-          <q-route-tab to="/hamburguesas" icon="lunch_dining" label="Hamburguesas" />
-          <q-route-tab to="/perros" icon="fastfood" label="Perros Calientes" />
-          <q-route-tab to="/pizzas" icon="local_pizza" label="Pizzas" />
-          <q-route-tab to="/bebidas" icon="local_bar" label="Bebidas" />
-          <q-route-tab to="/postres" icon="icecream" label="Postres" />
-          <q-route-tab to="/promociones" icon="local_offer" label="Promociones" />
-          <q-route-tab to="/nosotros" icon="groups" label="Nosotros" />
-        </q-tabs>
       </q-toolbar>
+
+      <!-- Barra secundaria: Pestañas separadas y distribuidas a lo ancho -->
+      <q-tabs 
+        v-model="tab" 
+        dense
+        fit
+        active-color="yellow"
+        indicator-color="yellow"
+        outside-arrows
+        mobile-arrows
+        class="bg-primary text-white border-top-soft"
+      >
+        <q-route-tab to="/hamburguesas" icon="lunch_dining" label="Hamburguesas" />
+        <q-route-tab to="/perros" icon="fastfood" label="Perros Calientes" />
+        <q-route-tab to="/pizzas" icon="local_pizza" label="Pizzas" />
+        <q-route-tab to="/bebidas" icon="local_bar" label="Bebidas" />
+        <q-route-tab to="/postres" icon="icecream" label="Postres" />
+        <q-route-tab to="/promociones" icon="local_offer" label="Promociones" />
+        <q-route-tab to="/nosotros" icon="groups" label="Nosotros" />
+      </q-tabs>
     </q-header>
 
     <q-page-container>
@@ -41,3 +49,9 @@ import { ref } from 'vue'
 
 const tab = ref('hamburguesas')
 </script>
+
+<style scoped>
+.border-top-soft {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+</style>
