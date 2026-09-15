@@ -7,14 +7,14 @@
           <div class="text-center q-px-md">
             <h1 class="text-h3 text-weight-bolder tech-title q-my-none">PERROS CALIENTES</h1>
             <p class="text-subtitle1 q-mt-sm text-grey-4 text-weight-regular" style="max-width: 600px; margin: 0 auto;">
-              Los clásicos de la calle con un toque gourmet e ingredientes premium.
+              Salchichas de alta calidad, toppings abundantes, queso fundido y papas fosforito crujientes.
             </p>
           </div>
         </div>
       </q-img>
     </div>
 
-    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1200px;">
+    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1400px;">
       
       <!-- Recomendación del Chef -->
       <div class="q-mb-xl">
@@ -27,25 +27,25 @@
 
         <q-card class="tech-chef-card shadow-12 overflow-hidden border-amber">
           <div class="row no-wrap border-responsive items-stretch">
-            <q-img :src="chefDog.imagen" class="col-12 col-md-5" height="260px" fit="cover" />
+            <q-img :src="chefHotDog.imagen" class="col-12 col-md-5" height="260px" fit="cover" />
             <q-card-section class="col-12 col-md-7 flex flex-center q-pa-lg bg-slate-800">
               <div class="full-width">
                 <div class="row items-center justify-between q-mb-sm">
-                  <div class="text-h5 text-weight-bolder text-white">{{ chefDog.nombre }}</div>
+                  <div class="text-h5 text-weight-bolder text-white">{{ chefHotDog.nombre }}</div>
                   <q-chip outline color="amber-5" text-color="amber-5" class="text-bold text-caption">
                     ESPECIALIDAD DE LA CASA
                   </q-chip>
                 </div>
-                <p class="text-body1 text-grey-4 q-mb-lg font-light">{{ chefDog.descripcion }}</p>
+                <p class="text-body1 text-grey-4 q-mb-lg font-light">{{ chefHotDog.descripcion }}</p>
                 <div class="row items-center justify-between">
-                  <span class="text-h4 text-weight-bolder text-accent">{{ chefDog.precio }}</span>
+                  <span class="text-h4 text-weight-bolder text-accent">{{ chefHotDog.precio }}</span>
                   <q-btn 
                     unelevated 
                     color="accent" 
                     icon="visibility" 
                     label="Ver detalle" 
                     class="text-bold text-dark rounded-borders"
-                    @click="verDetalle(chefDog)" 
+                    @click="verDetalle(chefHotDog)" 
                   />
                 </div>
               </div>
@@ -58,19 +58,19 @@
       <div class="row items-center justify-between q-mb-md">
         <div class="row items-center">
           <div class="tech-icon-box q-mr-sm">
-            <q-icon name="hot_dog" color="accent" size="20px" />
+            <q-icon name="strikethrough_s" color="accent" size="20px" />
           </div>
           <h2 class="text-h6 text-weight-bold text-white tech-subtitle q-my-none">CATÁLOGO COMPLETO</h2>
         </div>
-        <q-badge outline color="grey-6" class="q-px-sm q-py-xs">{{ dogs.length }} PRODUCTOS DISPONIBLES</q-badge>
+        <q-badge outline color="grey-6" class="q-px-sm q-py-xs">{{ perrosCalientes.length }} PRODUCTOS DISPONIBLES</q-badge>
       </div>
 
-      <!-- Grid de Productos alineados uniformemente -->
-      <div class="row q-col-gutter-lg items-stretch">
-        <div v-for="(producto, index) in dogs" :key="index" class="col-12 col-sm-6 col-md-4 flex">
+      <!-- Grid de 4 Productos en una sola fila (col-md-3) -->
+      <div class="row q-col-gutter-md items-stretch">
+        <div v-for="(producto, index) in perrosCalientes" :key="index" class="col-12 col-sm-6 col-md-3 flex">
           <q-card class="tech-card full-width flex column justify-between">
             <div>
-              <q-img :src="producto.imagen" height="190px" fit="cover">
+              <q-img :src="producto.imagen" height="170px" fit="cover">
                 <div v-if="producto.etiqueta" class="absolute-top-right bg-transparent q-pa-xs">
                   <q-chip 
                     :color="getBadgeColor(producto.etiqueta)" 
@@ -84,14 +84,14 @@
               </q-img>
 
               <q-card-section class="q-pa-md">
-                <div class="text-h6 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
-                <div class="text-body2 text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
+                <div class="text-subtitle1 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
+                <div class="text-caption text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
               </q-card-section>
             </div>
 
             <!-- Footer con alineación inferior constante -->
             <q-card-section class="q-pt-none q-pa-md row items-center justify-between border-top-subtle">
-              <span class="text-h6 text-weight-bolder text-accent">{{ producto.precio }}</span>
+              <span class="text-subtitle1 text-weight-bolder text-accent">{{ producto.precio }}</span>
               <q-btn 
                 flat 
                 round 
@@ -151,41 +151,41 @@ import { ref } from 'vue'
 const modalVerProducto = ref(false)
 const productoSeleccionado = ref(null)
 
-const chefDog = {
-  nombre: "Perro Salvaje Premium",
-  descripcion: "Salchicha suiza gratinada con 3 quesos, tocineta crocante, ripio de papa, maíz tierno y guacamole.",
-  precio: "$24.000",
-  imagen: "https://superpapasdelmol.com/wp-content/uploads/2026/05/1778201780227.png"
+const chefHotDog = {
+  nombre: "Perro Suizo Especial",
+  descripcion: "Salchicha Suiza a la parrilla, tocineta ahumada, queso costeño rallado, piña artesanal, papas fosforito y salsa de la casa.",
+  precio: "$18.000",
+  imagen: "https://images.unsplash.com/photo-1619740455993-9e612b1af08a?q=80&w=600&auto=format&fit=crop"
 }
 
-const dogs = [
+const perrosCalientes = [
   {
     nombre: "Perro Sencillo",
-    descripcion: "Salchicha manguera, queso fundido, ripio de papa, salsa rosada y piña.",
+    descripcion: "Salchicha tradicional, queso mozzarella fundido, papas fosforito y variedad de salsas.",
     precio: "$12.000",
     etiqueta: "Más pedido",
-    imagen: "https://i.ytimg.com/vi/bpwovJ-L9x4/sddefault.jpg"
+    imagen: "https://images.unsplash.com/photo-1612392062631-9bde08832711?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Perro Suizo Extra",
-    descripcion: "Salchicha suiza, abundante queso mozzarella, piña y doble tocineta.",
-    precio: "$17.500",
-    etiqueta: "Nuevo",
-    imagen: "https://images.unsplash.com/photo-1619740455993-9e612b1af08a?q=80&w=500&auto=format&fit=crop"
-  },
-  {
-    nombre: "Perro Mexicano",
-    descripcion: "Salchicha manguera, carne desmechada, pico de gallo, guacamole y ají.",
-    precio: "$18.000",
+    nombre: "Perro Tex-Mex",
+    descripcion: "Salchicha zenu, carne desmechada, guacamole, queso pepper jack y jalapeños.",
+    precio: "$16.500",
     etiqueta: "Picante",
+    imagen: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?q=80&w=500&auto=format&fit=crop"
+  },
+  {
+    nombre: "Perro Hawaiano",
+    descripcion: "Salchicha manguera, jamón, doble queso, dulce de piña casero y papas fosforito.",
+    precio: "$14.500",
+    etiqueta: "Nuevo",
     imagen: "https://images.unsplash.com/photo-1541214113241-21578d2d9b62?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Perro Veggie",
-    descripcion: "Salchicha a base de soya, verduras salteadas, maíz y lactonesa de ajo.",
-    precio: "$15.000",
-    etiqueta: "Vegetariano",
-    imagen: "https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=500&auto=format&fit=crop"
+    nombre: "Perro Bifé BBQ",
+    descripcion: "Salchicha ahumada, cebolla crispy, tocineta en cubos, queso cheddar y salsa BBQ.",
+    precio: "$15.500",
+    etiqueta: "",
+    imagen: "https://images.unsplash.com/photo-1619740455993-9e612b1af08a?q=80&w=500&auto=format&fit=crop"
   }
 ]
 
@@ -206,7 +206,7 @@ const getBadgeColor = (tag) => {
 </script>
 
 <style scoped>
-/* Estilos Dark Tech generales */
+/* Estilos Dark Tech */
 .tech-page {
   background-color: #0f172a;
 }
@@ -287,11 +287,12 @@ const getBadgeColor = (tag) => {
 
 .desc-clamp {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: 1.35;
+  min-height: 3.9em;
 }
 
 /* Modal */
