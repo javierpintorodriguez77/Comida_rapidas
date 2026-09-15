@@ -6,7 +6,7 @@
       <q-toolbar>
         <q-toolbar-title class="text-center row items-center justify-center">
           <q-icon name="fastfood" size="28px" class="q-mr-sm" />
-          <span class="text-weight-bold">Menú Digital</span>
+          <span class="text-weight-bold">Gourmet</span>
         </q-toolbar-title>
       </q-toolbar>
 
