@@ -1,15 +1,15 @@
 <template>
-<q-layout view="hHh lpR fFf">
+  <q-layout view="hHh lpR fFf">
 
     <q-header elevated class="bg-primary text-white">
       <q-toolbar>
-        <!-- Título principal a la izquierda -->
+        <!-- Título principal -->
         <q-toolbar-title shrink class="row items-center q-mr-md">
           <q-icon name="fastfood" size="28px" class="q-mr-sm" />
           <span class="text-weight-bold text-no-wrap">Menú Digital</span>
         </q-toolbar-title>
 
-        <!-- Categorías del menú en la misma barra superior -->
+        <!-- Pestañas de menú en la barra superior -->
         <q-tabs 
           v-model="tab" 
           dense
@@ -30,12 +30,10 @@
       </q-toolbar>
     </q-header>
 
-    <!-- Contenido principal según la ruta seleccionada -->
     <q-page-container>
       <router-view />
     </q-page-container>
 
-    <!-- Pie de página -->
     <q-footer elevated class="bg-grey-9 text-white">
       <q-toolbar class="justify-center">
         <div class="text-caption">&copy; Menú Digital - Todos los derechos reservados</div>
