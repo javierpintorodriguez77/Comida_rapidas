@@ -2,14 +2,11 @@
   <q-layout view="hHh lpR fFf">
 
     <q-header elevated class="bg-primary text-white">
-      <q-toolbar>
-        <q-btn dense flat round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-
+      <q-toolbar class="q-py-xs">
         <q-toolbar-title class="row items-center">
           <q-icon name="fastfood" size="28px" class="q-mr-sm" />
-          <span>Menú Digital</span>
+          <span class="text-weight-bold">Menú Digital</span>
         </q-toolbar-title>
-
 
         <q-btn 
           flat 
@@ -21,75 +18,31 @@
           <q-tooltip>Ver detalle del producto</q-tooltip>
         </q-btn>
       </q-toolbar>
+
+      <!-- Menú de navegación horizontal superior -->
+      <q-tabs 
+        v-model="tab" 
+        align="center" 
+        dense
+        active-color="yellow"
+        indicator-color="yellow"
+        class="bg-primary text-white shadow-2"
+        outside-arrows
+        mobile-arrows
+      >
+        <q-route-tab to="/hamburguesas" icon="lunch_dining" label="Hamburguesas" />
+        <q-route-tab to="/perros" icon="fastfood" label="Perros Calientes" />
+        <q-route-tab to="/pizzas" icon="local_pizza" label="Pizzas" />
+        <q-route-tab to="/bebidas" icon="local_bar" label="Bebidas" />
+        <q-route-tab to="/postres" icon="icecream" label="Postres" />
+        <q-route-tab to="/promociones" icon="local_offer" label="Promociones" />
+        <q-route-tab to="/nosotros" icon="groups" label="Nosotros" />
+      </q-tabs>
     </q-header>
 
-    
-    <q-drawer v-model="leftDrawerOpen" side="left" behavior="mobile" bordered class="bg-grey-1">
-      <q-scroll-area class="fit">
-        <q-list padding class="text-grey-8">
-          <q-item-label header class="text-weight-bold text-uppercase">
-            Categorías del Menú
-          </q-item-label>
-
-          <q-item clickable v-ripple to="/hamburguesas" active-class="text-primary text-bold">
-            <q-item-section avatar>
-              <q-icon name="lunch_dining" />
-            </q-item-section>
-            <q-item-section>Hamburguesas</q-item-section>
-          </q-item>
-
-          <q-item clickable v-ripple to="/perros" active-class="text-primary text-bold">
-            <q-item-section avatar>
-              <q-icon name="fastfood" />
-            </q-item-section>
-            <q-item-section>Perros Calientes</q-item-section>
-          </q-item>
-
-          <q-item clickable v-ripple to="/pizzas" active-class="text-primary text-bold">
-            <q-item-section avatar>
-              <q-icon name="local_pizza" />
-            </q-item-section>
-            <q-item-section>Pizzas</q-item-section>
-          </q-item>
-
-          <q-item clickable v-ripple to="/bebidas" active-class="text-primary text-bold">
-            <q-item-section avatar>
-              <q-icon name="local_bar" />
-            </q-item-section>
-            <q-item-section>Bebidas</q-item-section>
-          </q-item>
-
-          <q-item clickable v-ripple to="/postres" active-class="text-primary text-bold">
-            <q-item-section avatar>
-              <q-icon name="icecream" />
-            </q-item-section>
-            <q-item-section>Postres</q-item-section>
-          </q-item>
-
-          <q-item clickable v-ripple to="/promociones" active-class="text-primary text-bold">
-            <q-item-section avatar>
-              <q-icon name="local_offer" />
-            </q-item-section>
-            <q-item-section>Promociones</q-item-section>
-          </q-item>
-
-          <q-separator class="q-my-md" />
-
-          <q-item clickable v-ripple to="/nosotros" active-class="text-primary text-bold">
-            <q-item-section avatar>
-              <q-icon name="groups" />
-            </q-item-section>
-            <q-item-section>Nosotros</q-item-section>
-          </q-item>
-        </q-list>
-      </q-scroll-area>
-    </q-drawer>
-
-    
     <q-page-container>
       <router-view />
     </q-page-container>
-
 
     <q-dialog v-model="modalVerProducto">
       <q-card style="width: 400px; max-width: 90vw;" class="rounded-borders">
@@ -123,9 +76,8 @@
 <script setup>
 import { ref } from 'vue'
 
-const leftDrawerOpen = ref(false)
+const tab = ref('hamburguesas')
 const modalVerProducto = ref(false)
-
 
 const productoDemo = ref({
   nombre: 'Hamburguesa Especial',
@@ -133,8 +85,4 @@ const productoDemo = ref({
   descripcion: 'Deliciosa carne 100% de res, queso doble crema, tocineta crujiente, lechuga fresca, tomate y salsa de la casa.',
   imagen: 'https://cdn.quasar.dev/img/burger.jpg'
 })
-
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value
-}
 </script>
