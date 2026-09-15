@@ -10,15 +10,8 @@
         </q-toolbar-title>
 
         <!-- Pestañas de menú en la barra superior -->
-        <q-tabs 
-          v-model="tab" 
-          dense
-          active-color="yellow"
-          indicator-color="yellow"
-          outside-arrows
-          mobile-arrows
-          class="text-white"
-        >
+        <q-tabs v-model="tab" dense active-color="yellow" indicator-color="yellow" outside-arrows mobile-arrows
+          class="text-white">
           <q-route-tab to="/hamburguesas" icon="lunch_dining" label="Hamburguesas" />
           <q-route-tab to="/perros" icon="fastfood" label="Perros Calientes" />
           <q-route-tab to="/pizzas" icon="local_pizza" label="Pizzas" />
