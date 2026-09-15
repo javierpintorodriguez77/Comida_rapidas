@@ -2,19 +2,19 @@
   <q-page class="tech-page q-pb-xl text-slate-2">
     <!-- Banner de portada -->
     <div class="banner-container relative-position">
-      <q-img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=1000&auto=format&fit=crop" height="240px" fit="cover">
+      <q-img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=1000&auto=format&fit=crop" height="240px" fit="cover">
         <div class="absolute-full flex flex-center text-white bg-filter">
           <div class="text-center q-px-md">
             <h1 class="text-h3 text-weight-bolder tech-title q-my-none">BEBIDAS & REFRESCOS</h1>
             <p class="text-subtitle1 q-mt-sm text-grey-4 text-weight-regular" style="max-width: 600px; margin: 0 auto;">
-              Refresca tu paladar con nuestras limonadas de autor, jugos naturales y bebidas heladas.
+              Jugos naturales, limonadas refrescantes, gaseosas y sodas saborizadas.
             </p>
           </div>
         </div>
       </q-img>
     </div>
 
-    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1200px;">
+    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1400px;">
       
       <!-- Recomendación del Chef -->
       <div class="q-mb-xl">
@@ -65,12 +65,12 @@
         <q-badge outline color="grey-6" class="q-px-sm q-py-xs">{{ bebidas.length }} PRODUCTOS DISPONIBLES</q-badge>
       </div>
 
-      <!-- Grid de Productos con altura uniforme distribuidos correctamente -->
-      <div class="row q-col-gutter-lg items-stretch">
-        <div v-for="(producto, index) in bebidas" :key="index" class="col-12 col-sm-6 col-md-4 flex">
+      <!-- Grid de 4 Productos en una sola fila (col-md-3) -->
+      <div class="row q-col-gutter-md items-stretch">
+        <div v-for="(producto, index) in bebidas" :key="index" class="col-12 col-sm-6 col-md-3 flex">
           <q-card class="tech-card full-width flex column justify-between">
             <div>
-              <q-img :src="producto.imagen" height="190px" fit="cover">
+              <q-img :src="producto.imagen" height="170px" fit="cover">
                 <div v-if="producto.etiqueta" class="absolute-top-right bg-transparent q-pa-xs">
                   <q-chip 
                     :color="getBadgeColor(producto.etiqueta)" 
@@ -84,14 +84,14 @@
               </q-img>
 
               <q-card-section class="q-pa-md">
-                <div class="text-h6 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
-                <div class="text-body2 text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
+                <div class="text-subtitle1 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
+                <div class="text-caption text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
               </q-card-section>
             </div>
 
-            <!-- Footer fijo en la parte inferior de cada card -->
+            <!-- Footer con alineación inferior constante -->
             <q-card-section class="q-pt-none q-pa-md row items-center justify-between border-top-subtle">
-              <span class="text-h6 text-weight-bolder text-accent">{{ producto.precio }}</span>
+              <span class="text-subtitle1 text-weight-bolder text-accent">{{ producto.precio }}</span>
               <q-btn 
                 flat 
                 round 
@@ -152,40 +152,40 @@ const modalVerProducto = ref(false)
 const productoSeleccionado = ref(null)
 
 const chefBebida = {
-  nombre: "Limonada de Coco Frappé",
-  descripcion: "Zumo de limón fresco recién exprimido, crema de coco concentrada y hielo granizado de textura fina.",
+  nombre: "Limonada Cerezada Especial",
+  descripcion: "Sumo de limón fresco batido con marrasquinos, jarabe artesanal de cereza y hielo granizado.",
   precio: "$11.000",
   imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop"
 }
 
 const bebidas = [
   {
-    nombre: "Gaseosa 350ml",
-    descripcion: "Coca-Cola, Sprite, Premio o Colombiana bien helada.",
-    precio: "$5.000",
+    nombre: "Limonada de Coco",
+    descripcion: "Zumo natural de limón batido con crema de coco artesanal y hielo picado.",
+    precio: "$12.000",
     etiqueta: "Más pedido",
-    imagen: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=500&auto=format&fit=crop"
+  },
+  {
+    nombre: "Soda Frutos Rojos",
+    descripcion: "Soda efervescente con reducción artesanal de mora, fresa, arándanos y hojas de menta.",
+    precio: "$10.500",
+    etiqueta: "Nuevo",
+    imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500&auto=format&fit=crop"
   },
   {
     nombre: "Jugo Natural en Agua/Leche",
-    descripcion: "Sabores: Maracuyá, Mango, Lulo, Mora o Fresa.",
-    precio: "$7.500",
-    etiqueta: "Nuevo",
+    descripcion: "Fruta natural a elección: Mango, Maracuyá, Lulo o Fresa preparada al instante.",
+    precio: "$8.500",
+    etiqueta: "",
     imagen: "https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Limonada Cerezada",
-    descripcion: "Limonada casera mezclada con cerezas dulces y jarabe natural.",
-    precio: "$9.500",
+    nombre: "Gaseosa Personal 350ml",
+    descripcion: "Presentación en botella personal de las marcas tradicionales bien fría.",
+    precio: "$5.000",
     etiqueta: "",
-    imagen: "https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=500&auto=format&fit=crop"
-  },
-  {
-    nombre: "Cerveza Artesanal",
-    descripcion: "Cerveza rubia o negra fría de producción local.",
-    precio: "$10.000",
-    etiqueta: "",
-    imagen: "https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=500&auto=format&fit=crop"
   }
 ]
 
@@ -206,7 +206,7 @@ const getBadgeColor = (tag) => {
 </script>
 
 <style scoped>
-/* Estilos Dark Tech generales */
+/* Estilos Dark Tech */
 .tech-page {
   background-color: #0f172a;
 }
@@ -287,11 +287,12 @@ const getBadgeColor = (tag) => {
 
 .desc-clamp {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: 1.35;
+  min-height: 3.9em;
 }
 
 /* Modal */
