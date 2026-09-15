@@ -2,89 +2,90 @@
   <q-page class="tech-page q-pb-xl text-slate-2">
     <!-- Banner de portada -->
     <div class="banner-container relative-position">
-      <q-img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000&auto=format&fit=crop" height="260px" fit="cover">
+      <q-img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop"
+        height="260px" fit="cover">
         <div class="absolute-full flex flex-center text-white bg-filter">
           <div class="text-center q-px-md">
-            <h1 class="text-h3 text-weight-bolder tech-title q-my-none">NOSOTROS</h1>
-            <p class="text-subtitle1 q-mt-sm text-grey-4 text-weight-regular" style="max-width: 650px; margin: 0 auto;">
-              Conoce la pasión, dedicación y estándar de calidad detrás de cada uno de nuestros platos.
+            <h1 class="text-h3 text-weight-bolder tech-title q-my-none">NUESTRA HISTORIA</h1>
+            <p class="text-subtitle1 q-mt-sm text-grey-4 text-weight-regular" style="max-width: 600px; margin: 0 auto;">
+              Transformando ingredientes de origen en experiencias memorables para el paladar.
             </p>
           </div>
         </div>
       </q-img>
     </div>
 
-    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1400px;">
+    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1100px;">
       
-      <!-- Sección Historia y Misión -->
-      <div class="row q-col-gutter-lg items-center q-mb-xl">
-        <div class="col-12 col-md-6">
-          <div class="row items-center q-mb-sm">
-            <div class="tech-icon-box q-mr-sm">
-              <q-icon name="restaurant" color="accent" size="20px" />
-            </div>
-            <h2 class="text-h6 text-weight-bold text-accent tech-subtitle q-my-none">NUESTRA HISTORIA</h2>
+      <!-- Manifiesto / Filosofía -->
+      <div class="q-mb-xl">
+        <q-card class="tech-card shadow-12 overflow-hidden">
+          <div class="row no-wrap border-responsive items-stretch">
+            <q-img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=700&auto=format&fit=crop"
+              class="col-12 col-md-6" height="340px" fit="cover" />
+            <q-card-section class="col-12 col-md-6 q-pa-lg bg-slate-800 flex column justify-center">
+              <div class="row items-center q-mb-xs">
+                <div class="tech-icon-box q-mr-sm">
+                  <q-icon name="restaurant_menu" color="accent" size="20px" />
+                </div>
+                <div class="text-overline text-accent text-bold tech-subtitle">NUESTRA FILOSOFÍA</div>
+              </div>
+              <h2 class="text-h4 text-weight-bolder text-white q-mb-md">El Arte de la Cocina</h2>
+              <p class="text-body1 text-grey-3 q-mb-sm font-light">
+                Nacimos con el propósito de redefinir los clásicos de la cocina urbana y tradicional, elevándolos
+                mediante técnicas vanguardistas y materia prima de la más alta calidad.
+              </p>
+              <p class="text-body2 text-grey-4 font-light q-mb-none">
+                Cada receta es diseñada minuciosamente por nuestro equipo de chefs, donde la temperatura, la textura y
+                el maridaje perfecto son los protagonistas.
+              </p>
+            </q-card-section>
           </div>
-          <h3 class="text-h4 text-weight-bolder text-white q-mt-xs q-mb-md">Pasión por la comida gourmet y el servicio de excelencia</h3>
-          <p class="text-body1 text-grey-4 font-light style-paragraph">
-            Nacimos con el objetivo de transformar la comida rápida tradicional en una experiencia gastronómica superior. Seleccionamos cuidadosamente ingredientes frescos de productores locales, combinando técnicas artesanales con un toque moderno en cada preparación.
-          </p>
-          <p class="text-body1 text-grey-4 font-light style-paragraph">
-            Desde la elaboración de nuestras hamburguesas 100% artesanal y masas horneadas a la piedra, hasta nuestros postres hechos en casa, nuestro compromiso es ofrecer siempre el mejor sabor y una atención excepcional.
-          </p>
-        </div>
+        </q-card>
+      </div>
 
-        <div class="col-12 col-md-6">
-          <q-card class="tech-card overflow-hidden">
-            <q-img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=700&auto=format&fit=crop" height="320px" fit="cover" />
+      <!-- Sección Pilares -->
+      <div class="row items-center q-mb-md">
+        <div class="tech-icon-box q-mr-sm">
+          <q-icon name="auto_awesome" color="accent" size="20px" />
+        </div>
+        <h2 class="text-h6 text-weight-bold text-white tech-subtitle q-my-none">NUESTROS PILARES</h2>
+      </div>
+
+      <div class="row q-col-gutter-lg q-mb-xl items-stretch">
+        <div v-for="(pilar, index) in pilares" :key="index" class="col-12 col-sm-4 flex">
+          <q-card class="tech-card full-width flex flex-center column text-center q-pa-lg">
+            <q-avatar size="60px" color="slate-700" text-color="accent" class="q-mb-md border-subtle">
+              <q-icon :name="pilar.icono" size="30px" />
+            </q-avatar>
+            <div class="text-h6 text-weight-bold text-white q-mb-xs">{{ pilar.titulo }}</div>
+            <div class="text-body2 text-grey-4 font-light">{{ pilar.descripcion }}</div>
           </q-card>
         </div>
       </div>
 
-      <!-- Tarjetas de Valores y Pilares -->
-      <div class="q-mb-xl">
-        <div class="row items-center q-mb-lg">
-          <div class="tech-icon-box q-mr-sm">
-            <q-icon name="stars" color="amber-5" size="22px" />
-          </div>
-          <h2 class="text-h6 text-weight-bold text-white tech-subtitle q-my-none">NUESTROS PILARES</h2>
+      <!-- Sección Equipo -->
+      <div class="row items-center q-mb-md">
+        <div class="tech-icon-box q-mr-sm">
+          <q-icon name="groups" color="accent" size="20px" />
         </div>
-
-        <div class="row q-col-gutter-md">
-          <div v-for="(pilar, idx) in pilares" :key="idx" class="col-12 col-sm-6 col-md-3">
-            <q-card class="tech-card full-width q-pa-md text-center">
-              <div class="tech-avatar-box q-mx-auto q-mb-md">
-                <q-icon :name="pilar.icono" color="accent" size="28px" />
-              </div>
-              <div class="text-subtitle1 text-weight-bold text-white q-mb-xs">{{ pilar.titulo }}</div>
-              <div class="text-caption text-grey-4 font-light">{{ pilar.descripcion }}</div>
-            </q-card>
-          </div>
-        </div>
+        <h2 class="text-h6 text-weight-bold text-white tech-subtitle q-my-none">NUESTRO EQUIPO</h2>
       </div>
 
-      <!-- Banner Informativo / Horarios y Ubicación -->
-      <q-card class="tech-chef-card border-slate overflow-hidden q-mb-md">
-        <q-card-section class="q-pa-xl bg-slate-800">
-          <div class="row q-col-gutter-lg items-center">
-            <div class="col-12 col-md-8">
-              <div class="text-h5 text-weight-bold text-white q-mb-xs">¿Listo para disfrutar una experiencia única?</div>
-              <p class="text-body1 text-grey-4 font-light q-mb-none">
-                Visítanos en nuestras instalaciones o realiza tu pedido en línea para disfrutar del mejor sabor directo a tu mesa.
-              </p>
+      <div class="row q-col-gutter-lg items-stretch">
+        <div v-for="(miembro, index) in equipo" :key="index" class="col-12 col-sm-6 col-md-4 flex">
+          <q-card class="tech-card full-width flex column justify-between">
+            <div>
+              <q-img :src="miembro.imagen" height="260px" fit="cover" position="top center" class="full-width" />
+              <q-card-section class="text-center q-pa-md">
+                <div class="text-h6 text-weight-bold text-white">{{ miembro.nombre }}</div>
+                <div class="text-caption text-accent text-bold text-uppercase q-mb-xs title-clamp">{{ miembro.cargo }}</div>
+                <div class="text-body2 text-grey-4 font-light desc-clamp">{{ miembro.bio }}</div>
+              </q-card-section>
             </div>
-            <div class="col-12 col-md-4 text-md-right text-left">
-              <q-btn 
-                unelevated 
-                color="accent" 
-                icon="menu_book" 
-                label="Ver Menú Completo" 
-                class="text-bold text-dark rounded-borders q-px-lg q-py-sm"
-              />
-            </div>
-          </div>
-        </q-card-section>
-      </q-card>
+          </q-card>
+        </div>
+      </div>
 
     </div>
   </q-page>
@@ -93,24 +94,40 @@
 <script setup>
 const pilares = [
   {
+    icono: "eco",
+    titulo: "Origen Orgánico",
+    descripcion: "Seleccionamos vegetales de huertos locales e ingredientes importados de denominación de origen protegida."
+  },
+  {
+    icono: "local_fire_department",
+    titulo: "Técnica Tradicional",
+    descripcion: "Procesos de cocción a la leña, fermentaciones lentas de masa madre y maduraciones controladas."
+  },
+  {
     icono: "verified",
-    titulo: "Calidad Premium",
-    descripcion: "Ingredientes seleccionados minuciosamente bajo los más altos estándares de higiene y frescura."
+    titulo: "Excelencia Sin Reservas",
+    descripcion: "Nos apasiona el detalle en el emplatado y el equilibrio de aromas en cada preparación."
+  }
+]
+
+const equipo = [
+  {
+    nombre: "Chef Matteo Rossi",
+    cargo: "Executive Chef & Fundador",
+    bio: "Especialista en gastronomía mediterránea con más de 15 años de experiencia en restaurantes de alto nivel.",
+    imagen: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=500&auto=format&fit=crop"
   },
   {
-    icono: "flatware",
-    titulo: "Sabor Artesanal",
-    descripcion: "Recetas propias elaboradas al momento para garantizar una textura y sazón inolvidable."
+    nombre: "Valentina Gómez",
+    cargo: "Maestra Sommelier",
+    bio: "Curadora de nuestra carta de elixires, refrescos botánicos y maridajes exclusivos para cada plato.",
+    imagen: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=500&auto=format&fit=crop"
   },
   {
-    icono: "electric_bolt",
-    titulo: "Agilidad y Eficiencia",
-    descripcion: "Procesos optimizados para entregar tus productos calientes y a tiempo en cada pedido."
-  },
-  {
-    icono: "favorite",
-    titulo: "Atención al Cliente",
-    descripcion: "Nos enfocamos en brindar una experiencia cálida y memorable en cada interacción."
+    nombre: "Pierre Laurent",
+    cargo: "Chef Patissier",
+    bio: "Maestro repostero formado en París, enfocado en texturas complejas y combinaciones de cacao fino de aroma.",
+    imagen: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=500&auto=format&fit=crop"
   }
 ]
 </script>
@@ -134,6 +151,10 @@ const pilares = [
   backdrop-filter: blur(3px);
 }
 
+.bg-slate-800 {
+  background-color: #1e293b;
+}
+
 .tech-icon-box {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -144,32 +165,12 @@ const pilares = [
   justify-content: center;
 }
 
-.tech-avatar-box {
-  width: 54px;
-  height: 54px;
-  background: rgba(14, 165, 233, 0.1);
-  border: 1px solid rgba(14, 165, 233, 0.3);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.border-subtle {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: rgba(30, 41, 59, 0.8) !important;
 }
 
-/* Tarjeta Destacada */
-.tech-chef-card {
-  background-color: #1e293b;
-  border-radius: 12px;
-}
-
-.border-slate {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.bg-slate-800 {
-  background-color: #1e293b;
-}
-
-/* Tarjetas Estándar del Grid */
+/* Tarjetas */
 .tech-card {
   background-color: #1e293b;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -184,7 +185,27 @@ const pilares = [
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
 }
 
-.style-paragraph {
-  line-height: 1.6;
+/* Truncado de texto */
+.title-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.desc-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+@media (max-width: 1023px) {
+  .border-responsive {
+    flex-direction: column;
+  }
 }
 </style>
