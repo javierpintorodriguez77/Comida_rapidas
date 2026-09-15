@@ -7,14 +7,14 @@
           <div class="text-center q-px-md">
             <h1 class="text-h3 text-weight-bolder tech-title q-my-none">PIZZAS ARTESANALES</h1>
             <p class="text-subtitle1 q-mt-sm text-grey-4 text-weight-regular" style="max-width: 600px; margin: 0 auto;">
-              Masa madurada a la leña con salsa de tomate natural y queso fundido.
+              Masa madre horneada en piedra, salsa de tomate italiana y queso mozzarella derretido.
             </p>
           </div>
         </div>
       </q-img>
     </div>
 
-    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1200px;">
+    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1400px;">
       
       <!-- Recomendación del Chef -->
       <div class="q-mb-xl">
@@ -65,12 +65,12 @@
         <q-badge outline color="grey-6" class="q-px-sm q-py-xs">{{ pizzas.length }} PRODUCTOS DISPONIBLES</q-badge>
       </div>
 
-      <!-- Grid de Productos alineados uniformemente -->
-      <div class="row q-col-gutter-lg items-stretch">
-        <div v-for="(producto, index) in pizzas" :key="index" class="col-12 col-sm-6 col-md-4 flex">
+      <!-- Grid de 4 Productos en una sola fila (col-md-3) -->
+      <div class="row q-col-gutter-md items-stretch">
+        <div v-for="(producto, index) in pizzas" :key="index" class="col-12 col-sm-6 col-md-3 flex">
           <q-card class="tech-card full-width flex column justify-between">
             <div>
-              <q-img :src="producto.imagen" height="190px" fit="cover">
+              <q-img :src="producto.imagen" height="170px" fit="cover">
                 <div v-if="producto.etiqueta" class="absolute-top-right bg-transparent q-pa-xs">
                   <q-chip 
                     :color="getBadgeColor(producto.etiqueta)" 
@@ -84,14 +84,14 @@
               </q-img>
 
               <q-card-section class="q-pa-md">
-                <div class="text-h6 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
-                <div class="text-body2 text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
+                <div class="text-subtitle1 text-weight-bold text-white q-mb-xs title-clamp">{{ producto.nombre }}</div>
+                <div class="text-caption text-grey-4 desc-clamp">{{ producto.descripcion }}</div>
               </q-card-section>
             </div>
 
             <!-- Footer con alineación inferior constante -->
             <q-card-section class="q-pt-none q-pa-md row items-center justify-between border-top-subtle">
-              <span class="text-h6 text-weight-bolder text-accent">{{ producto.precio }}</span>
+              <span class="text-subtitle1 text-weight-bolder text-accent">{{ producto.precio }}</span>
               <q-btn 
                 flat 
                 round 
@@ -152,40 +152,40 @@ const modalVerProducto = ref(false)
 const productoSeleccionado = ref(null)
 
 const chefPizza = {
-  nombre: "Pizza Cuatro Quesos Gourmet",
-  descripcion: "Mezcla de Mozzarella, Gorgonzola, Parmesano y Provolone ahumado sobre salsa pomodoro artesanal.",
-  precio: "$35.000",
-  imagen: "https://images.unsplash.com/photo-1573821663912-569905455b1c?q=80&w=600&auto=format&fit=crop"
+  nombre: "Pizza Master Suprema",
+  descripcion: "Masa madre artesanal, pepperoni napolitano, carne molida sazonada, pimentón verde, champiñones frescos y extra queso mozzarella.",
+  precio: "$38.000",
+  imagen: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop"
 }
 
 const pizzas = [
   {
-    nombre: "Pizza Hawaiana",
-    descripcion: "Salsa pomodoro, queso mozzarella, jamón dulce y trozos de piña en almíbar.",
-    precio: "$26.000",
-    etiqueta: "Más pedido",
-    imagen: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=500&auto=format&fit=crop"
-  },
-  {
-    nombre: "Pizza Pepperoni",
-    descripcion: "Abundante pepperoni americano, salsa de tomate picante y queso mozzarella.",
+    nombre: "Pizza Pepperoni Clásica",
+    descripcion: "Salsa de tomate pomodoro, doble porción de pepperoni crujiente y mozzarella gratinado.",
     precio: "$28.000",
-    etiqueta: "Nuevo",
+    etiqueta: "Más pedido",
     imagen: "https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Pizza Diablo",
-    descripcion: "Salami picante, jalapeños, pimientos rojos y toque de aceite de chile.",
-    precio: "$30.000",
-    etiqueta: "Picante",
-    imagen: "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=500&auto=format&fit=crop"
+    nombre: "Pizza Hawaiana Gourmet",
+    descripcion: "Queso mozzarella, trozos de jamón de pierna, piña caramelizada en almíbar y finas hierbas.",
+    precio: "$29.500",
+    etiqueta: "Nuevo",
+    imagen: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=500&auto=format&fit=crop"
   },
   {
-    nombre: "Pizza Margarita",
-    descripcion: "Salsa de tomate natural, rodajas de tomate fresco, mozzarella y albahaca.",
-    precio: "$24.000",
+    nombre: "Pizza 4 Quesos",
+    descripcion: "Mezcla artesanal de mozzarella, parmesano madurado, queso azul y provolone ahumado.",
+    precio: "$32.000",
     etiqueta: "Vegetariano",
-    imagen: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://images.unsplash.com/photo-1573821663912-569905455b1c?q=80&w=500&auto=format&fit=crop"
+  },
+  {
+    nombre: "Pizza Mexicana Picante",
+    descripcion: "Salsa de tomate, carne especiada, jalapeños en rodajas, maíz tierno, frijol refrito y doritos crocantes.",
+    precio: "$31.000",
+    etiqueta: "Picante",
+    imagen: "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=500&auto=format&fit=crop"
   }
 ]
 
@@ -206,7 +206,7 @@ const getBadgeColor = (tag) => {
 </script>
 
 <style scoped>
-/* Estilos Dark Tech generales */
+/* Estilos Dark Tech */
 .tech-page {
   background-color: #0f172a;
 }
@@ -287,11 +287,12 @@ const getBadgeColor = (tag) => {
 
 .desc-clamp {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.4;
+  line-height: 1.35;
+  min-height: 3.9em;
 }
 
 /* Modal */
