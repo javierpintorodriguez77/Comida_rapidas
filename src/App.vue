@@ -2,19 +2,19 @@
   <q-layout view="hHh lpR fFf">
 
     <q-header elevated class="bg-primary text-white">
-      <!-- Barra principal: solo título -->
+      <!-- Barra principal: Título centrado -->
       <q-toolbar>
-        <q-toolbar-title class="row items-center">
+        <q-toolbar-title class="text-center row items-center justify-center">
           <q-icon name="fastfood" size="28px" class="q-mr-sm" />
           <span class="text-weight-bold">Menú Digital</span>
         </q-toolbar-title>
       </q-toolbar>
 
-      <!-- Barra secundaria: Pestañas separadas y distribuidas a lo ancho -->
+      <!-- Barra secundaria: Pestañas totalmente centradas -->
       <q-tabs 
         v-model="tab" 
         dense
-        fit
+        align="center"
         active-color="yellow"
         indicator-color="yellow"
         outside-arrows
