@@ -178,7 +178,7 @@ const postres = [
     descripcion: "Postre italiano a base de bizcochuelos ahogados en café express, capas de mascarpone y cacao en polvo.",
     precio: "$14.000",
     etiqueta: "Nuevo",
-    imagen: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_HtrWuPGoDJloS785lgZn_AvT1hipWX6tks0Zrlz6WA&s=10"
   },
   {
     nombre: "Waffle con Nutella y Banano",
