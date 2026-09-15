@@ -185,7 +185,7 @@ const perrosCalientes = [
     descripcion: "Salchicha ahumada, cebolla crispy, tocineta en cubos, queso cheddar y salsa BBQ.",
     precio: "$15.500",
     etiqueta: "",
-    imagen: "https://images.unsplash.com/photo-1619740455993-9e612b1af08a?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUng8EwHVAS3k_i7U3YJ7eKBIqxtMyDTrcvdc5w0XHUQ&s=10"
   }
 ]
 
