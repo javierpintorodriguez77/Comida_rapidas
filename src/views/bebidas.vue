@@ -164,7 +164,7 @@ const bebidas = [
     descripcion: "Zumo natural de limón batido con crema de coco artesanal y hielo picado.",
     precio: "$12.000",
     etiqueta: "Más pedido",
-    imagen: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpt0QRKWqc2_Zb8NNvMEpoDDb1EqOkH9YlUELTXI2LYw&s=10"
   },
   {
     nombre: "Soda Frutos Rojos",
@@ -178,7 +178,7 @@ const bebidas = [
     descripcion: "Fruta natural a elección: Mango, Maracuyá, Lulo o Fresa preparada al instante.",
     precio: "$8.500",
     etiqueta: "",
-    imagen: "https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8PzSG34TljJv6WCv2ynvHq0DLMnbeo9oQ6jnBYL4thA&s=10"
   },
   {
     nombre: "Gaseosa Personal 350ml",
