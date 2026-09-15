@@ -171,7 +171,7 @@ const perrosCalientes = [
     descripcion: "Salchicha zenu, carne desmechada, guacamole, queso pepper jack y jalapeños.",
     precio: "$16.500",
     etiqueta: "Picante",
-    imagen: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxtaBmMlD094ADJ1gd_XQltm3C9XvLMX0NRmKdDHqIdQ&s=10"
   },
   {
     nombre: "Perro Hawaiano",
