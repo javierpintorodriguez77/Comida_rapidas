@@ -178,7 +178,7 @@ const burgers = [
     descripcion: "Carne 150g, queso pepper jack, guacamole, jalapeños picados y totopos.",
     precio: "$21.500",
     etiqueta: "Picante",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf75PhiPZwm2ok8cpW1EyAlgg-2QJ-rgb6KpMXeI8UoRZkXHx0fJboDAu0&s=10"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRov6Oi1eBV5178qe7wWnEwYDqTZfpXOrYzRHSHDc3ymC-m0RfEOkpXLANu&s=10"
   },
   {
     nombre: "Veggie Burger",
