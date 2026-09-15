@@ -164,7 +164,7 @@ const perrosCalientes = [
     descripcion: "Salchicha tradicional, queso mozzarella fundido, papas fosforito y variedad de salsas.",
     precio: "$12.000",
     etiqueta: "Más pedido",
-    imagen: "https://images.unsplash.com/photo-1612392062631-9bde08832711?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSupEUy_KxzIjH40SjD_X-CeBGuCQsDD2vud2kEX0DKMYRlYW2RNqLbTt15&s=10"
   },
   {
     nombre: "Perro Tex-Mex",
