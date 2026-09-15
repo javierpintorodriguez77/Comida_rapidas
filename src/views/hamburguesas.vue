@@ -171,7 +171,7 @@ const hamburguesas = [
     descripcion: "Carne 180g, tocineta crujiente, aros de cebolla, queso gouda y salsa BBQ.",
     precio: "$22.000",
     etiqueta: "Nuevo",
-    imagen: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f6?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaY3Jm9MRVK-ABTmHW-Lw4ywf1D9We1zwQs80yvEEOAkTH62n4O7_B63dD&s=10"
   },
   {
     nombre: "Mexicana Jalapeño",
