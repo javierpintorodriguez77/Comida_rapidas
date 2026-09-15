@@ -1,6 +1,5 @@
 <template>
   <q-page class="q-pb-xl">
-    <!-- Banner de portada -->
     <div class="banner-container relative-position">
       <q-img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1000&auto=format&fit=crop" height="220px" fit="cover">
         <div class="absolute-full flex flex-center text-white bg-filter">
@@ -13,7 +12,6 @@
     </div>
 
     <div class="container q-mx-auto q-px-md q-mt-lg" style="max-width: 1200px;">
-      <!-- Recomendación del Chef -->
       <div class="q-mb-xl">
         <div class="row items-center q-mb-md">
           <q-icon name="star" color="amber-9" size="32px" class="q-mr-sm" />
@@ -34,7 +32,7 @@
                 <p class="text-body1 text-grey-9 q-mb-md">{{ chefPizza.descripcion }}</p>
                 <div class="row items-center justify-between">
                   <span class="text-h4 text-weight-bolder text-negative">{{ chefPizza.precio }}</span>
-                  <q-btn color="secondary" icon="shopping_cart" label="Pedir ahora" class="text-bold" />
+                  <q-btn color="secondary" icon="visibility" label="Ver producto" class="text-bold" @click="verDetalle(chefPizza)" />
                 </div>
               </div>
             </q-card-section>
@@ -42,7 +40,6 @@
         </q-card>
       </div>
 
-      <!-- Menú General -->
       <h2 class="text-h5 text-weight-bold text-grey-9 q-mb-md">Menú General</h2>
       <div class="row q-col-gutter-md">
         <div v-for="(producto, index) in pizzas" :key="index" class="col-12 col-sm-6 col-md-4">
@@ -62,16 +59,48 @@
 
             <q-card-actions class="full-width row items-center justify-between q-px-md q-pb-md">
               <span class="text-h6 text-weight-bolder text-primary">{{ producto.precio }}</span>
-              <q-btn flat round color="primary" icon="add_shopping_cart" />
+              <q-btn flat round color="primary" icon="visibility" @click="verDetalle(producto)">
+                <q-tooltip>Ver producto</q-tooltip>
+              </q-btn>
             </q-card-actions>
           </q-card>
         </div>
       </div>
     </div>
+
+    <q-dialog v-model="modalVerProducto">
+      <q-card style="width: 450px; max-width: 90vw;" class="rounded-borders">
+        <q-img v-if="productoSeleccionado" :src="productoSeleccionado.imagen" height="220px" fit="cover">
+          <div class="absolute-top-right bg-transparent">
+            <q-btn icon="close" flat round dense color="white" v-close-popup />
+          </div>
+        </q-img>
+
+        <q-card-section v-if="productoSeleccionado">
+          <div class="row items-center justify-between q-mb-xs">
+            <div class="text-h6 text-weight-bold">{{ productoSeleccionado.nombre }}</div>
+            <q-chip v-if="productoSeleccionado.etiqueta" :color="getBadgeColor(productoSeleccionado.etiqueta)" text-color="white" size="sm" class="text-bold">
+              {{ productoSeleccionado.etiqueta }}
+            </q-chip>
+          </div>
+          <div class="text-h6 text-primary text-weight-bolder q-mb-sm">{{ productoSeleccionado.precio }}</div>
+          <div class="text-body2 text-grey-8">{{ productoSeleccionado.descripcion }}</div>
+        </q-card-section>
+
+        <q-card-actions align="right" class="q-pa-md">
+          <q-btn label="Cerrar" color="primary" flat v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+const modalVerProducto = ref(false)
+const productoSeleccionado = ref(null)
+
 const chefPizza = {
   nombre: "Pizza Cuatro Quesos Gourmet",
   descripcion: "Mezcla de Mozzarella, Gorgonzola, Parmesano y Provolone ahumado sobre salsa pomodoro artesanal.",
@@ -109,6 +138,11 @@ const pizzas = [
     imagen: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=500&auto=format&fit=crop"
   }
 ]
+
+function verDetalle(item) {
+  productoSeleccionado.value = item
+  modalVerProducto.value = true
+}
 
 const getBadgeColor = (tag) => {
   switch (tag) {
