@@ -164,7 +164,7 @@ const hamburguesas = [
     descripcion: "Carne de res 150g, queso americano, lechuga, tomate y salsa de la casa.",
     precio: "$18.500",
     etiqueta: "Más pedido",
-    imagen: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=500&auto=format&fit=crop"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyD5e8k2tnIovM9kv46SYl-5FNMkhjWisp8gpYqEiv3w&s=10"
   },
   {
     nombre: "BBQ Bacon",
