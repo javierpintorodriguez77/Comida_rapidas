@@ -1,139 +1,184 @@
 <template>
-  <q-page class="q-pa-md container q-mx-auto" style="max-width: 1000px;">
-    
-    <q-card class="q-mb-lg shadow-2">
-      <q-card-section>
-        <div class="text-h4 text-weight-bold text-primary q-mb-md text-center">Nuestra Historia</div>
-        <p class="text-body1 text-grey-8">
-          Nacimos en el año 2020 como un pequeño emprendimiento familiar enfocado en ofrecer comida rápida con ingredientes artesanales de alta calidad. Lo que comenzó como un puesto local de hamburguesas se ha convertido en el menú digital preferido de la ciudad, combinando sabor, rapidez y excelente servicio.
-        </p>
-      </q-card-section>
-    </q-card>
-
-    <div class="row q-col-gutter-md q-mb-lg">
-      <div class="col-12 col-md-6 flex">
-        <q-card class="full-width column justify-between shadow-2">
-          <q-card-section>
-            <div class="text-h6 text-weight-bold row items-center q-mb-sm text-secondary">
-              <q-icon name="place" class="q-mr-xs" /> Ubicación & Horarios
-            </div>
-            <p class="q-mb-xs"><strong>Dirección:</strong> Carrera 10 # 15-24, Centro</p>
-            <p class="q-mb-none"><strong>Horario:</strong> Lunes a Domingo: 4:00 PM - 11:30 PM</p>
-          </q-card-section>
-        </q-card>
-      </div>
-
-      <div class="col-12 col-md-6 flex">
-        <q-card class="full-width column justify-between shadow-2">
-          <q-card-section>
-            <div class="text-h6 text-weight-bold row items-center q-mb-sm text-positive">
-              <q-icon name="phone" class="q-mr-xs" /> Pedidos & Domicilios
-            </div>
-            <p class="q-mb-xs"><strong>Teléfono:</strong> (607) 654-3210</p>
-            <p class="q-mb-none"><strong>WhatsApp:</strong> +57 310 987 6543</p>
-          </q-card-section>
-        </q-card>
-      </div>
+  <q-page class="bg-grey-10 text-grey-2 q-pb-xl">
+    <div class="banner-container relative-position">
+      <q-img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop"
+        height="320px" fit="cover">
+        <div class="absolute-full flex flex-center bg-overlay">
+          <div class="text-center text-amber-2 q-px-md">
+            <div class="text-overline letter-spacing-2 text-amber-5">Nuestra Historia & Filosofía</div>
+            <h1 class="text-h3 text-weight-bolder q-my-xs playfair-font">Pasión por la Gastronomía</h1>
+            <p class="text-subtitle1 text-grey-4 font-italic" style="max-width: 600px; margin: 0 auto;">
+              Transformando ingredientes de origen en experiencias memorables para el paladar.
+            </p>
+          </div>
+        </div>
+      </q-img>
     </div>
-
-    <div class="text-h5 text-weight-bold text-grey-9 q-mb-md text-center">Nuestro Equipo</div>
-    <div class="row q-col-gutter-md">
-      <div v-for="(miembro, index) in equipo" :key="index" class="col-12 col-sm-4 flex">
-        <q-card class="my-card full-width column justify-between text-center shadow-3">
-          <div>
-            <q-img :src="miembro.foto" height="200px" fit="cover">
-              <div class="absolute-top-right bg-transparent">
-                <q-btn flat round icon="visibility" color="white" @click="verDetalle(miembro)">
-                  <q-tooltip>Ver perfil</q-tooltip>
-                </q-btn>
-              </div>
-            </q-img>
-            <q-card-section>
-              <div class="text-h6 text-weight-bold title-clamp">{{ miembro.nombre }}</div>
-              <div class="text-subtitle2 text-primary q-mb-sm title-clamp">{{ miembro.cargo }}</div>
+    <div class="container q-mx-auto q-px-md q-mt-xl" style="max-width: 1100px;">
+      <div class="q-mb-xl">
+        <q-card class="bg-grey-9 text-grey-2 shadow-24 border-gold border-radius-lg overflow-hidden">
+          <div class="row no-wrap border-responsive items-center">
+            <q-img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=700&auto=format&fit=crop"
+              class="col-12 col-md-6" height="380px" fit="cover" />
+            <q-card-section class="col-12 col-md-6 q-pa-xl">
+              <q-icon name="restaurant_menu" color="amber-5" size="32px" class="q-mb-sm" />
+              <div class="text-overline text-amber-5 text-bold letter-spacing-2">Manifiesto Gourmet</div>
+              <h2 class="text-h4 text-weight-bolder text-amber-1 playfair-font q-mb-md">El Arte de la Cocina de Autor
+              </h2>
+              <p class="text-body1 text-grey-4 font-light q-mb-sm">
+                Nacimos con el propósito de redefinir los clásicos de la cocina urbana y tradicional, elevándolos
+                mediante técnicas vanguardistas y materia prima de la más alta calidad.
+              </p>
+              <p class="text-body2 text-grey-5 font-light">
+                Cada receta es diseñada minuciosamente por nuestro equipo de chefs, donde la temperatura, la textura y
+                el maridaje perfecto son los protagonistas.
+              </p>
             </q-card-section>
           </div>
-
-          <q-card-actions class="full-width row items-center justify-center q-px-md q-pb-md">
-            <q-btn flat color="primary" icon="visibility" label="Ver detalle" @click="verDetalle(miembro)" />
-          </q-card-actions>
         </q-card>
       </div>
+      <div class="text-center q-mb-lg q-pt-md">
+        <h2 class="text-h5 text-weight-bold text-amber-2 playfair-font q-my-none">NUESTROS PILARES</h2>
+        <div class="gold-line q-mx-auto q-mt-xs"></div>
+      </div>
+      <div class="row q-col-gutter-lg q-mb-xl">
+        <div v-for="(pilar, index) in pilares" :key="index" class="col-12 col-sm-4">
+          <q-card
+            class="card-gourmet bg-grey-9 text-grey-2 full-height flex flex-center column text-center q-pa-lg border-grey border-radius-md">
+            <q-avatar size="64px" color="grey-10" text-color="amber-5" class="border-gold q-mb-md">
+              <q-icon :name="pilar.icono" size="32px" />
+            </q-avatar>
+            <div class="text-h6 text-weight-bold text-amber-1 playfair-font q-mb-sm">{{ pilar.titulo }}</div>
+            <div class="text-body2 text-grey-4 font-light">{{ pilar.descripcion }}</div>
+          </q-card>
+        </div>
+      </div>
+      <div class="text-center q-mb-lg q-pt-md">
+        <h2 class="text-h5 text-weight-bold text-amber-2 playfair-font q-my-none">LA BRIGADA DE COCINA</h2>
+        <div class="gold-line q-mx-auto q-mt-xs"></div>
+      </div>
+
+      <div class="row q-col-gutter-lg items-stretch">
+        <div v-for="(miembro, index) in equipo" :key="index" class="col-12 col-sm-6 col-md-4">
+          <q-card
+            class="card-gourmet bg-grey-9 text-grey-2 full-height border-grey border-radius-md overflow-hidden flex column justify-between">
+            <div>
+              <q-img :src="miembro.imagen" height="280px" fit="cover" position="top center" class="full-width" />
+              <q-card-section class="text-center">
+                <div class="text-h6 text-weight-bold text-amber-1 playfair-font">{{ miembro.nombre }}</div>
+                <div class="text-caption text-amber-5 text-bold text-uppercase letter-spacing-2 q-mb-xs">{{
+                  miembro.cargo }}</div>
+                <div class="text-body2 text-grey-4 font-light">{{ miembro.bio }}</div>
+              </q-card-section>
+            </div>
+
+          </q-card>
+        </div>
+      </div>
+
     </div>
-
-    <q-dialog v-model="modalVerMiembro">
-      <q-card style="width: 400px; max-width: 90vw;" class="rounded-borders text-center">
-        <q-img v-if="miembroSeleccionado" :src="miembroSeleccionado.foto" height="220px" fit="cover">
-          <div class="absolute-top-right bg-transparent">
-            <q-btn icon="close" flat round dense color="white" v-close-popup />
-          </div>
-        </q-img>
-
-        <q-card-section v-if="miembroSeleccionado">
-          <div class="text-h6 text-weight-bold">{{ miembroSeleccionado.nombre }}</div>
-          <div class="text-subtitle1 text-primary text-bold q-mb-sm">{{ miembroSeleccionado.cargo }}</div>
-          <div class="text-body2 text-grey-8">{{ miembroSeleccionado.descripcion }}</div>
-        </q-card-section>
-
-        <q-card-actions align="right" class="q-pa-md">
-          <q-btn label="Cerrar" color="primary" flat v-close-popup />
-        </q-card-actions>
-      </q-card>
-    </q-dialog>
   </q-page>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
-const modalVerMiembro = ref(false)
-const miembroSeleccionado = ref(null)
-
-const equipo = [
+const pilares = [
   {
-    nombre: "Carlos Mendoza",
-    cargo: "Chef Principal",
-    descripcion: "Especialista en gastronomía urbana con más de 8 años de experiencia perfeccionando recetas artesanales.",
-    foto: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=400&auto=format&fit=crop"
+    icono: "eco",
+    titulo: "Origen Orgánico",
+    descripcion: "Seleccionamos vegetales de huertos locales e ingredientes importados de denominación de origen protegida."
   },
   {
-    nombre: "Laura Gómez",
-    cargo: "Cajera y Atención",
-    descripcion: "Encargada de brindar la mejor experiencia de servicio al cliente y gestionar los pedidos con eficiencia.",
-    foto: alt="" height="280px" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&amp;w=500&amp;auto=format&amp;fit=crop" style="object-fit: cover; object-position: center top;">
+    icono: "local_fire_department",
+    titulo: "Técnica Tradicional",
+    descripcion: "Procesos de cocción a la leña, fermentaciones lentas de masa madre y maduraciones controladas."
   },
   {
-    nombre: "Andrea Silva",
-    cargo: "Domiciliario",
-    descripcion: "Responsable de garantizar que cada pedido llegue caliente, rápido y en perfectas condiciones a tu puerta.",
-    foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
+    icono: "verified",
+    titulo: "Excelencia Sin Reservas",
+    descripcion: "Nos apasiona el detalle en el emplatado y el equilibrio de aromas en cada preparación."
   }
 ]
 
-function verDetalle(item) {
-  miembroSeleccionado.value = item
-  modalVerMiembro.value = true
-}
+const equipo = [
+  {
+    nombre: "Chef Matteo Rossi",
+    cargo: "Executive Chef & Fundador",
+    bio: "Especialista en gastronomía mediterránea con más de 15 años de experiencia en restaurantes con estrellas Michelin.",
+    imagen: "https://img.magnific.com/foto-gratis/joven-cocinero-feliz-preparando-bruschetta-salsa-aguacate-tomate-cereza-cocina_637285-3120.jpg?semt=ais_hybrid&w=740&q=80"
+  },
+  {
+    nombre: "Valentina Gómez",
+    cargo: "Maestra Sommelier",
+    bio: "Curadora de nuestra carta de elixires, refrescos botánicos y maridajes exclusivos para cada plato.",
+    imagen: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=500&auto=format&fit=crop"
+  },
+  {
+    nombre: "Pierre Laurent",
+    cargo: "Chef Patissier",
+    bio: "Maestro repostero formado en París, enfocado en texturas complejas y combinaciones de cacao fino de aroma.",
+    imagen: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=500&auto=format&fit=crop"
+  }
+]
 </script>
 
 <style scoped>
-.my-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap');
+
+.playfair-font {
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-.my-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+.letter-spacing-2 {
+  letter-spacing: 2px;
 }
 
-.title-clamp {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.bg-overlay {
+  background: rgba(15, 15, 15, 0.8);
+}
+
+.border-gold {
+  border: 1px solid #d4af37;
+}
+
+.border-grey {
+  border: 1px solid #333333;
+}
+
+.gold-line {
+  width: 50px;
+  height: 2px;
+  background-color: #d4af37;
+}
+
+.border-radius-lg {
+  border-radius: 16px;
+}
+
+.border-radius-md {
+  border-radius: 12px;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.card-gourmet {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-gourmet:hover {
+  transform: translateY(-6px);
+  border-color: #d4af37;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1023px) {
+  .border-responsive {
+    flex-direction: column;
+  }
 }
 </style>
