@@ -11,8 +11,8 @@
     </q-card>
 
     <div class="row q-col-gutter-md q-mb-lg">
-      <div class="col-12 col-md-6">
-        <q-card class="full-height shadow-2">
+      <div class="col-12 col-md-6 flex">
+        <q-card class="full-width column justify-between shadow-2">
           <q-card-section>
             <div class="text-h6 text-weight-bold row items-center q-mb-sm text-secondary">
               <q-icon name="place" class="q-mr-xs" /> Ubicación & Horarios
@@ -23,8 +23,8 @@
         </q-card>
       </div>
 
-      <div class="col-12 col-md-6">
-        <q-card class="full-height shadow-2">
+      <div class="col-12 col-md-6 flex">
+        <q-card class="full-width column justify-between shadow-2">
           <q-card-section>
             <div class="text-h6 text-weight-bold row items-center q-mb-sm text-positive">
               <q-icon name="phone" class="q-mr-xs" /> Pedidos & Domicilios
@@ -38,20 +38,25 @@
 
     <div class="text-h5 text-weight-bold text-grey-9 q-mb-md text-center">Nuestro Equipo</div>
     <div class="row q-col-gutter-md">
-      <div v-for="(miembro, index) in equipo" :key="index" class="col-12 col-sm-4">
-        <q-card class="text-center shadow-3">
-          <q-img :src="miembro.foto" height="200px" fit="cover">
-            <div class="absolute-top-right bg-transparent">
-              <q-btn flat round icon="visibility" color="white" @click="verDetalle(miembro)">
-                <q-tooltip>Ver perfil</q-tooltip>
-              </q-btn>
-            </div>
-          </q-img>
-          <q-card-section>
-            <div class="text-h6 text-weight-bold">{{ miembro.nombre }}</div>
-            <div class="text-subtitle2 text-primary q-mb-sm">{{ miembro.cargo }}</div>
+      <div v-for="(miembro, index) in equipo" :key="index" class="col-12 col-sm-4 flex">
+        <q-card class="my-card full-width column justify-between text-center shadow-3">
+          <div>
+            <q-img :src="miembro.foto" height="200px" fit="cover">
+              <div class="absolute-top-right bg-transparent">
+                <q-btn flat round icon="visibility" color="white" @click="verDetalle(miembro)">
+                  <q-tooltip>Ver perfil</q-tooltip>
+                </q-btn>
+              </div>
+            </q-img>
+            <q-card-section>
+              <div class="text-h6 text-weight-bold title-clamp">{{ miembro.nombre }}</div>
+              <div class="text-subtitle2 text-primary q-mb-sm title-clamp">{{ miembro.cargo }}</div>
+            </q-card-section>
+          </div>
+
+          <q-card-actions class="full-width row items-center justify-center q-px-md q-pb-md">
             <q-btn flat color="primary" icon="visibility" label="Ver detalle" @click="verDetalle(miembro)" />
-          </q-card-section>
+          </q-card-actions>
         </q-card>
       </div>
     </div>
@@ -110,3 +115,25 @@ function verDetalle(item) {
   modalVerMiembro.value = true
 }
 </script>
+
+<style scoped>
+.my-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.title-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+</style>
