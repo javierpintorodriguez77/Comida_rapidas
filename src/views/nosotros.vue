@@ -132,22 +132,9 @@ const equipo = [
   letter-spacing: 2px;
 }
 
-.bg-overlay {
-  background: rgba(15, 15, 15, 0.8);
-}
 
 .border-gold {
   border: 1px solid #d4af37;
-}
-
-.border-grey {
-  border: 1px solid #333333;
-}
-
-.gold-line {
-  width: 50px;
-  height: 2px;
-  background-color: #d4af37;
 }
 
 .border-radius-lg {
@@ -172,8 +159,6 @@ const equipo = [
 
 .card-gourmet:hover {
   transform: translateY(-6px);
-  border-color: #d4af37;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 1023px) {
