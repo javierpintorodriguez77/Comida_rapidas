@@ -100,7 +100,7 @@ const equipo = [
     nombre: "Laura Gómez",
     cargo: "Cajera y Atención",
     descripcion: "Encargada de brindar la mejor experiencia de servicio al cliente y gestionar los pedidos con eficiencia.",
-    foto: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
+    foto: <img class="q-img__image q-img__image--with-transition q-img__image--loaded" alt="" height="280px" loading="lazy" fetchpriority="auto" aria-hidden="true" draggable="false" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&amp;w=500&amp;auto=format&amp;fit=crop" style="object-fit: cover; object-position: center top;">
   },
   {
     nombre: "Andrea Silva",
